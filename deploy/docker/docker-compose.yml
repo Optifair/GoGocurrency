@@ -1,0 +1,16 @@
+services:
+  gateway:
+    build:
+      context: ../..
+      dockerfile: ./deploy/docker/gateway.Dockerfile
+    ports:
+      - "8086:8086"
+    depends_on:
+      - currency
+
+  currency:
+    build:
+      context: ../..
+      dockerfile: ./deploy/docker/currency.Dockerfile
+    ports:
+      - "8087:8087"
